@@ -1,4 +1,84 @@
- <button id="addBtn">Add Homework</button>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homework Journal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #content {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .homework-item {
+            flex-grow: 1;
+        }
+
+        .delete-button {
+            background-color: #ff5733;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-button:hover {
+            background-color: #ff3019;
+        }
+
+        input[type="text"], input[type="date"], button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Homework Journal</h1>
+    </header>
+    <div id="content">
+        <h2>Add Homework</h2>
+        <input type="text" id="title" placeholder="Homework Title">
+        <input type="date" id="dueDate">
+        <button id="addBtn">Add Homework</button>
         <h2>Homework List</h2>
         <ul id="homeworkList">
             <!-- Homework items will be added here dynamically using JavaScript -->
@@ -11,9 +91,36 @@
             const addBtn = document.getElementById("addBtn");
             const homeworkList = document.getElementById("homeworkList");
 
-            // Load existing homework items from local storage
             const savedHomework = JSON.parse(localStorage.getItem("homework")) || [];
-            savedHomework.forEach(item => addHomeworkItem(item.title, item.dueDate));
+
+            // Function to create and add a new homework item
+            function addHomeworkItem(title, dueDate, index) {
+                const listItem = document.createElement("li");
+                listItem.className = "homework-item";
+                listItem.innerHTML = `<div>${title} - Due Date: ${dueDate}</div><button class="delete-button" data-index="${index}">Delete</button>`;
+                homeworkList.appendChild(listItem);
+            }
+
+            // Function to delete a homework item
+            function deleteHomeworkItem(index) {
+                const item = savedHomework.splice(index, 1)[0];
+                localStorage.setItem("homework", JSON.stringify(savedHomework));
+                updateHomeworkList();
+            }
+
+            // Function to update the homework list
+            function updateHomeworkList() {
+                while (homeworkList.firstChild) {
+                    homeworkList.removeChild(homeworkList.firstChild);
+                }
+
+                savedHomework.forEach((item, index) => {
+                    addHomeworkItem(item.title, item.dueDate, index);
+                });
+            }
+
+            // Load existing homework items from local storage
+            updateHomeworkList();
 
             addBtn.addEventListener("click", function () {
                 const title = titleInput.value;
@@ -21,17 +128,24 @@
 
                 if (title && dueDate) {
                     const item = { title, dueDate };
-                    addHomeworkItem(title, dueDate);
-
-                    // Save the new item to local storage
                     savedHomework.push(item);
                     localStorage.setItem("homework", JSON.stringify(savedHomework));
+
+                    addHomeworkItem(title, dueDate, savedHomework.length - 1);
 
                     titleInput.value = "";
                     dueDateInput.value = "";
                 }
             });
 
-            function addHomeworkItem(title, dueDate) {
-                const listItem = document.createElement("li");
-                listItem.innerHTML = `<strong>${title}</strong> 
+            // Add a click event to the delete buttons
+            homeworkList.addEventListener("click", function (event) {
+                if (event.target.classList.contains("delete-button")) {
+                    const index = event.target.getAttribute("data-index");
+                    deleteHomeworkItem(index);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
