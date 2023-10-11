@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Homework Journal</title>
-    <style>
-        /* Your CSS styles go here */
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Homework Journal</h1>
-    </header>
-    <div id="content">
-        <h2>Add Homework</h2>
-        <input type="text" id="title" placeholder="Homework Title">
-        <input type="date" id="dueDate">
-        <button id="addBtn">Add Homework</button>
+ <button id="addBtn">Add Homework</button>
         <h2>Homework List</h2>
         <ul id="homeworkList">
             <!-- Homework items will be added here dynamically using JavaScript -->
@@ -50,10 +34,4 @@
 
             function addHomeworkItem(title, dueDate) {
                 const listItem = document.createElement("li");
-                listItem.innerHTML = `<strong>${title}</strong> - Due Date: ${dueDate}`;
-                homeworkList.appendChild(listItem);
-            }
-        });
-    </script>
-</body>
-</html>
+                listItem.innerHTML = `<strong>${title}</strong> 
