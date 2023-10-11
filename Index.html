@@ -1,0 +1,37 @@
+ <button id="addBtn">Add Homework</button>
+        <h2>Homework List</h2>
+        <ul id="homeworkList">
+            <!-- Homework items will be added here dynamically using JavaScript -->
+        </ul>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const titleInput = document.getElementById("title");
+            const dueDateInput = document.getElementById("dueDate");
+            const addBtn = document.getElementById("addBtn");
+            const homeworkList = document.getElementById("homeworkList");
+
+            // Load existing homework items from local storage
+            const savedHomework = JSON.parse(localStorage.getItem("homework")) || [];
+            savedHomework.forEach(item => addHomeworkItem(item.title, item.dueDate));
+
+            addBtn.addEventListener("click", function () {
+                const title = titleInput.value;
+                const dueDate = dueDateInput.value;
+
+                if (title && dueDate) {
+                    const item = { title, dueDate };
+                    addHomeworkItem(title, dueDate);
+
+                    // Save the new item to local storage
+                    savedHomework.push(item);
+                    localStorage.setItem("homework", JSON.stringify(savedHomework));
+
+                    titleInput.value = "";
+                    dueDateInput.value = "";
+                }
+            });
+
+            function addHomeworkItem(title, dueDate) {
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `<strong>${title}</strong> 
