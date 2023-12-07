@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <title>Homework Tracker and Notes</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Homework Tracker and Notes</h1>
+        
+        <!-- Homework Management Section -->
+        <div id="homeworkSection">
+            <h2>Homework Management</h2>
+            <ul id="homeworkList"></ul>
+            <form id="homeworkForm">
+                <input type="text" id="homeworkTitle" placeholder="Enter homework title">
+                <button type="submit">Add Homework</button>
+            </form>
+        </div>
+
+        <!-- Notes Section -->
+        <div id="notesSection">
+            <h2>Notes</h2>
+            <ul id="notesList"></ul>
+            <form id="notesForm">
+                <input type="text" id="notesTitle" placeholder="Enter note title">
+                <button type="submit">Add Note</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

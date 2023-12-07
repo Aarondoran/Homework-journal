@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index-style.css">
+    <title>Password Protected Site</title>
+</head>
+<body>
+    <div class="title-container">
+        <img src="doorhandle.jpg" alt="Door Handle" class="door-handle-img">
+        <h1 class="title">Welcome to My Site</h1>
+    </div>
+    
+    <div class="container">
+        <h1>Password Protected Site</h1>
+        <form id="loginForm">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="button" onclick="checkPassword()">Submit</button>
+        </form>
+        <p id="errorMessage" class="error-message"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
