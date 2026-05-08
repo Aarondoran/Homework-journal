@@ -1,0 +1,251 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #0f172a;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      color: white;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .header {
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      color: #94a3b8;
+      font-size: 18px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 25px;
+    }
+
+    .panel {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 28px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .panel h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .form-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    input,
+textarea,
+select {
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid #475569;
+  background: #0f172a;
+  color: white;
+  font-size: 15px;
+  height: 52px;
+}
+
+input[type="date"] {
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid #475569;
+  background: #0f172a;
+  color: white;
+  font-size: 15px;
+  height: 52px;
+  appearance: none;
+}
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+      height: 120px;
+      padding-top: 14px;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: #3b82f6;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    button {
+      border: none;
+      border-radius: 16px;
+      padding: 14px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.2s ease;
+      font-weight: bold;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+    }
+
+    .primary-btn {
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      color: white;
+    }
+
+    .save-btn {
+      background: linear-gradient(135deg, #16a34a, #22c55e);
+      color: white;
+    }
+
+    .load-btn {
+      background: linear-gradient(135deg, #9333ea, #a855f7);
+      color: white;
+    }
+
+    .empty {
+      text-align: center;
+      color: #94a3b8;
+      padding: 60px 20px;
+      border: 2px dashed #334155;
+      border-radius: 24px;
+    }
+
+    .homework-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .homework-card {
+      background: linear-gradient(145deg, #1e293b, #111827);
+      border: 1px solid #334155;
+      border-radius: 24px;
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .status {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .pending {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+    }
+
+    .completed-status {
+      background: rgba(34, 197, 94, 0.2);
+      color: #4ade80;
+    }
+
+    .subject {
+      display: inline-block;
+      background: rgba(59, 130, 246, 0.2);
+      color: #60a5fa;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .homework-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .completed-title {
+      text-decoration: line-through;
+      color: #64748b;
+    }
+
+    .due-date {
+      color: #cbd5e1;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .notes {
+      background: rgba(255,255,255,0.04);
+      padding: 14px;
+      border-radius: 16px;
+      color: #e2e8f0;
+      margin-bottom: 18px;
+      min-height: 80px;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .done-btn {
+      flex: 1;
+      background: #334155;
+      color: white;
+    }
+
+    .delete-btn {
+      flex: 1;
+      background: #dc2626;
+      color: white;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }

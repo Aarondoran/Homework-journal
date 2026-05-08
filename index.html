@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework Journal</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Homework Journal</h1>
+      <p>Organise homework, save progress, and manage assignments.</p>
+    </div>
+
+    <div class="layout">
+      <div class="panel">
+        <h2>Add Homework</h2>
+
+        <div class="form-layout">
+
+        <div class="input-group">
+          <label>Homework Title</label>
+          <input type="text" id="title" placeholder="Math Worksheet">
+        </div>
+
+        <div class="input-group">
+          <label>Subject</label>
+          <input type="text" id="subject" placeholder="Mathematics">
+        </div>
+
+        <div class="input-group">
+          <label>Due Date</label>
+          <input type="date" id="dueDate">
+        </div>
+
+        <div class="input-group">
+          <label>Notes</label>
+          <textarea id="notes" placeholder="Write instructions or reminders..."></textarea>
+        </div>
+
+        </div>
+
+        <div class="button-group">
+          <button class="primary-btn" onclick="addHomework()">Add Homework</button>
+          <button class="save-btn" onclick="saveHomework()">Save Homework</button>
+          <button class="load-btn" onclick="document.getElementById('fileInput').click()">Load Homework</button>
+          <input type="file" id="fileInput" accept="application/json" hidden>
+        </div>
+      </div>
+
+      <div>
+        <div id="homeworkList"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js">
+</body>
+</html>
