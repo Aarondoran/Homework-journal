@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homework Journal</title>
-  <link href="style.css" rel="stylesheet">
+<head><!--Head section templated from proffesional websites on other github sites-->
+  <meta charset="UTF-8"><!--Set chafatter set to uft8-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--used to make website usable for all device shapes-->
+  <title>Homework Journal</title><!--Set title of web site-->
+  <link href="style.css" rel="stylesheet"><!--Link to my css file-->
 </head>
 <body>
   <div class="container">
-    <div class="header">
+    <div class="header"><!--Header of the site-->
       <h1>Homework Journal</h1>
       <p>Organise homework, save progress, and manage assignments.</p>
     </div>
@@ -17,7 +17,7 @@
       <div class="panel">
         <h2>Add Homework</h2>
 
-        <div class="form-layout">
+        <div class="form-layout"><!--Input for homework-->
 
         <div class="input-group">
           <label>Homework Title</label>
@@ -41,7 +41,7 @@
 
         </div>
 
-        <div class="button-group">
+        <div class="button-group"><!--Buttons for adding homework-->
           <button class="primary-btn" onclick="addHomework()">Add Homework</button>
           <button class="save-btn" onclick="saveHomework()">Save Homework</button>
           <button class="load-btn" onclick="document.getElementById('fileInput').click()">Load Homework</button>
@@ -50,11 +50,11 @@
       </div>
 
       <div>
-        <div id="homeworkList"></div>
+        <div id="homeworkList"></div><!--Loads homework here-->
       </div>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js"></script><!--Adding js file-->
 </body>
 </html>
