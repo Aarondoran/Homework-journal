@@ -42,7 +42,7 @@ function renderHomework() {
         homeworkList.innerHTML = `
           <div class="panel empty">
             <h2>No Homework Yet</h2>
-            <p>Add homework assignments to get started.</p>
+            <p>Add homework assignments to start.</p>
           </div>
         `
         return
@@ -117,7 +117,7 @@ function saveHomework() {
 
       const link = document.createElement('a')
       link.href = url
-      link.download = 'homework-data.json'
+      link.download = 'homework-journal.json'
       link.click()
 
       URL.revokeObjectURL(url)
