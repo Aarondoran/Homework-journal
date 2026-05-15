@@ -48,9 +48,9 @@ Visit the app here:
 
 ---
 
-## Demo
+## How it looks
 
-
+![Readme-demo-image](Readme-demo-image.jpeg)
 
 ---
 
