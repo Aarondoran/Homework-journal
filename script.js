@@ -1,15 +1,17 @@
-let homework = []
+let homework = []/*Loads homework variable */
 
-    const fileInput = document.getElementById('fileInput')
+    const fileInput = document.getElementById('fileInput')/*File input code here*/
     fileInput.addEventListener('change', loadHomework)
 
+/*Add homework function by laoding the users inputs*/
     function addHomework() {
       const title = document.getElementById('title').value.trim()
       const subject = document.getElementById('subject').value.trim()
       const dueDate = document.getElementById('dueDate').value
       const notes = document.getElementById('notes').value.trim()
 
-      if (!title || !subject || !dueDate) {
+    /*Check if user typed everything in */
+        if (!title || !subject || !dueDate) {
         alert('Please complete all required fields.')
         return
       }
@@ -23,7 +25,8 @@ let homework = []
         completed: false
       })
 
-      renderHomework()
+   /*Runs load homework function*/
+        renderHomework()
 
       document.getElementById('title').value = ''
       document.getElementById('subject').value = ''
@@ -31,7 +34,8 @@ let homework = []
       document.getElementById('notes').value = ''
     }
 
-    function renderHomework() {
+  /*Load homework fucntion*/  
+function renderHomework() {
       const homeworkList = document.getElementById('homeworkList')
 
       if (homework.length === 0) {
@@ -86,7 +90,8 @@ let homework = []
       })
     }
 
-    function toggleComplete(id) {
+  /*Function for completing homework button */
+function toggleComplete(id) {
       homework = homework.map(item => {
         if (item.id === id) {
           item.completed = !item.completed
@@ -98,12 +103,14 @@ let homework = []
       renderHomework()
     }
 
-    function deleteHomework(id) {
+   /*to delete homework items*/
+function deleteHomework(id) {
       homework = homework.filter(item => item.id !== id)
       renderHomework()
     }
 
-    function saveHomework() {
+    /*to save homework items*/
+function saveHomework() {
       const data = JSON.stringify(homework, null, 2)
       const blob = new Blob([data], { type: 'application/json' })
       const url = URL.createObjectURL(blob)
@@ -116,7 +123,8 @@ let homework = []
       URL.revokeObjectURL(url)
     }
 
-    function loadHomework(event) {
+   /*to load homework*/
+function loadHomework(event) {
       const file = event.target.files[0]
 
       if (!file) return
@@ -141,4 +149,5 @@ let homework = []
       reader.readAsText(file)
     }
 
-    renderHomework()
+ /*runs load homework function*/
+renderHomework()
