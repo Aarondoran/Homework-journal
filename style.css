@@ -1,21 +1,24 @@
-    * {
+/*Sets styles to default*/
+* {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: Arial, sans-serif;
     }
 
-    body {
+    /*Sets styles for main body of webapge*/
+body {
       background-color: #0f172a;
       background-image:
-        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),/*online tool used to find good colors */
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);/*online tool used to find good colors */
       background-size: 40px 40px;
       color: white;
       min-height: 100vh;
       padding: 40px 20px;
     }
 
+/*sets styles for whatver comes after the '.'(basicslly everything except body*/
     .container {
       max-width: 1200px;
       margin: auto;
@@ -104,7 +107,7 @@ input[type="date"] {
       height: 120px;
       padding-top: 14px;
     }
-
+/*sets styles for buttons and some inputs*/
     input:focus,
     textarea:focus,
     select:focus {
@@ -244,7 +247,8 @@ input[type="date"] {
       color: white;
     }
 
-    @media (max-width: 900px) {
+  /*makes input and buttons and other stuff stay the width its supposed to(learned from w3schoolw)*/  
+@media (max-width: 900px) {
       .layout {
         grid-template-columns: 1fr;
       }
